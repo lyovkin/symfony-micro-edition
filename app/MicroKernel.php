@@ -27,7 +27,6 @@ class MicroKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle($this),
             new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
-            new Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new AppBundle\AppBundle()
         );
 
