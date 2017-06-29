@@ -12,11 +12,11 @@ Based on MicroKernelTrait `\Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTra
 
 ## Dockerize your app
 
-clone repo `https://github.com/lyovkin/dockerize-symfony` in root folder
-cd dockerize-symfony
-cp .env.dist .env and in .env file specify the path to the project
-cp .docker-compose.override.yml.dist .docker-compose.override.yml.dist
-configure `/nginx/project.conf`
-run `docker-compose up -d --build`
-add local domain symfony.dev in /etc/host with local ip
-discover local ip, e.g.: `docker inspect default-nginx | grep IPAdress`
+- clone repo `https://github.com/lyovkin/dockerize-symfony` in root folder
+- cd dockerize-symfony
+- cp .env.dist .env and in .env file specify the path to the project
+- cp .docker-compose.override.yml.dist .docker-compose.override.yml.dist
+- configure `/nginx/project.conf`
+- run `docker-compose up -d --build`
+- add local domain symfony.dev in /etc/host with local ip
+- discover local ip, e.g.: `docker inspect default-nginx | grep IPAdress`
