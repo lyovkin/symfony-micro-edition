@@ -18,5 +18,5 @@ Based on MicroKernelTrait `\Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTra
 - cp .docker-compose.override.yml.dist .docker-compose.override.yml.dist
 - configure `/nginx/project.conf`
 - run `docker-compose up -d --build`
-- add local domain symfony.dev in /etc/host with local ip
+- add local domain symfony.dev in /etc/hosts with local ip
 - discover local ip, e.g.: `docker inspect default-nginx | grep IPAdress`
