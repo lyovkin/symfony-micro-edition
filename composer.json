@@ -1,0 +1,38 @@
+{
+    "name": "lyovkin/symfony-micro-edition",
+    "description": "Symfony app based on MicroKernel",
+    "autoload": {
+        "psr-4": {
+            "AppBundle\\": "src/AppBundle/"
+        },
+        "classmap": [
+            "app/MicroKernel.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "symfony/symfony": "3.2.*",
+        "sensio/framework-extra-bundle": "^3.0",
+        "friendsofsymfony/rest-bundle": "^2.1",
+        "jms/serializer-bundle": "^1.1",
+        "alcaeus/mongo-php-adapter": "^1.0",
+        "doctrine/mongodb-odm-bundle": "^3.2",
+        "nelmio/api-doc-bundle": "^2.13",
+        "stof/doctrine-extensions-bundle": "^1.2",
+        "symfony/monolog-bundle": "^3.0"
+    },
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^2.3",
+        "phpunit/phpunit": "5.6"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "cp app/config/parameters.yml.dist app/config/parameters.yml",
+            "chmod -R 777 app/config/parameters.yml"
+        ]
+    }
+}

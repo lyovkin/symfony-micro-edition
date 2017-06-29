@@ -1,0 +1,12 @@
+parameters:
+
+    mongo_host: db_host
+    mongo_port: db_port
+    mongo_user: db_user
+    mongo_password: db_password
+    mongo_database: db_name
+    mongo_auth_database: admin
+
+    secret: ThisTokenIsNotSoSecretChangeIt
+
+    locale: en

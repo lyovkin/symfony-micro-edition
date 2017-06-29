@@ -1,0 +1,71 @@
+imports:
+    - { resource: parameters.yml }
+
+framework:
+    translator:      { fallbacks: ["%locale%"] }
+    secret:          "%secret%"
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    session:
+        handler_id:  ~
+    fragments:       ~
+    http_method_override: true
+
+monolog:
+    handlers:
+        main:
+            type:         fingers_crossed
+            action_level: error
+            handler:      nested
+        nested:
+            type:  stream
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+        console:
+            type:  console
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+
+doctrine_mongodb:
+    auto_generate_hydrator_classes: true
+    connections:
+        default:
+            server: mongodb://%mongo_host%:%mongo_port%
+            options:
+                username: "%mongo_user%"
+                password: "%mongo_password%"
+                db: "%mongo_auth_database%"
+    default_database: "%mongo_database%"
+    document_managers:
+        default:
+            auto_mapping: true
+
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    routing_loader:
+        default_format: json
+    format_listener:
+        rules:
+            - { priorities: ['json'], fallback_format: json, prefer_extension: false }
+    view:
+        view_response_listener: 'force'
+        formats:
+            json: true
+        templating_formats:
+            html: true
+    exception:
+        messages:
+            'Symfony\Component\HttpKernel\Exception\BadRequestHttpException': true
+    serializer:
+        serialize_null: false
+    allowed_methods_listener: true
+
+nelmio_api_doc: ~
